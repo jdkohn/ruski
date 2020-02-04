@@ -1,3 +1,4 @@
 <?php
-	echo $_SERVER["QUERY_STRING"];
+	$query_string = $_SERVER['QUERYSTRING'];
+	echo $query_string;
 ?>
