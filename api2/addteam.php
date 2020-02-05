@@ -7,17 +7,20 @@ $player2 = mysqli_real_escape_string($conn, $_GET["player2"]);
 
 $sql = "INSERT INTO teams (player1, player2) VALUES ('$player1', '$player2');";
 
-$id;
+$id = null;
+$team = null;
 
 if($conn->query($sql) === TRUE) {
 	$id = $conn->insert_id;
 }
 
-$team = array(
-	"player1" => $player1,
-	"player2" => $player2,
-	"id" => $id
-);
+if($id !== null) {
+	$team = array(
+		"player1" => $player1,
+		"player2" => $player2,
+		"id" => $id
+	);
+}
 
 $return = array(
 	"success" => "true",
