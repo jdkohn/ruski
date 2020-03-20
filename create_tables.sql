@@ -7,7 +7,6 @@ CREATE TABLE games (
   home_cups int(11) DEFAULT 10,
   away_cups int(11) DEFAULT 10,
   PRIMARY KEY (game_id),
-  UNIQUE KEY (home_team, away_team, date)
 );
 
 CREATE TABLE players (
@@ -21,26 +20,26 @@ CREATE TABLE statline (
   player_id int(11) NOT NULL,
   game_id int(11) NOT NULL,
   home_game tinyint(1) DEFAULT NULL,
-  shots int(11) DEFAULT 0,
-  makes int(11) DEFAULT 0,
-  ginobs int(11) DEFAULT 0,
-  made_ginobs int(11) DEFAULT 0,
-  voms int(11) DEFAULT 0,
-  forced_voms int(11) DEFAULT 0,
-  redemption_shots int(11) DEFAULT 0,
-  redemption_makes int(11) DEFAULT 0,
-  forced_ots int(11) DEFAULT 0,
-  shots_defended int(11) DEFAULT 0,
-  cups_knocked_over int(11) DEFAULT 0,
-  splash_outs int(11) DEFAULT 0,
-  trifectas int(11) DEFAULT 0,
-  difectas int(11) DEFAULT 0,
-  ot_shots int(11) DEFAULT 0,
-  ot_makes int(11) DEFAULT 0,
-  one_cup_on_the_table_makes int(11) DEFAULT 0,
-  one_cup_on_the_table_shots int(11) DEFAULT 0,
-  PRIMARY KEY (statline_id),
-  UNIQUE KEY (player_id, game_id)
+  shots tinyint(1) DEFAULT 0,
+  makes tinyint(1) DEFAULT 0,
+  ginobs tinyint(1) DEFAULT 0,
+  made_ginobs tinyint(1) DEFAULT 0,
+  voms tinyint(1) DEFAULT 0,
+  forced_voms tinyint(1) DEFAULT 0,
+  redemption_shots tinyint(1) DEFAULT 0,
+  redemption_makes tinyint(1) DEFAULT 0,
+  forced_ots tinyint(1) DEFAULT 0,
+  shots_defended tinyint(1) DEFAULT 0,
+  cups_knocked_over tinyint(1) DEFAULT 0,
+  splash_outs tinyint(1) DEFAULT 0,
+  trifectas tinyint(1) DEFAULT 0,
+  difectas tinyint(1) DEFAULT 0,
+  ot_shots tinyint(1) DEFAULT 0,
+  ot_makes tinyint(1) DEFAULT 0,
+  one_cup_on_the_table_makes tinyint(1) DEFAULT 0,
+  one_cup_on_the_table_shots tinyint(1) DEFAULT 0,
+  balls_back tinyint(1),
+  PRIMARY KEY (statline_id)
 );
 
 CREATE TABLE intangibles (

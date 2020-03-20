@@ -1,7 +1,5 @@
 <?php
 
-include "db_connect.php";
-
 $query_string = $_SERVER['QUERY_STRING'];
 $query_parts = explode('&', $query_string);
 
@@ -38,4 +36,7 @@ $return = array(
 
 echo json_encode($return);
 
+
+
 ?>
+

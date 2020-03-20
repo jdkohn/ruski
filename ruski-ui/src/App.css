@@ -65,4 +65,5 @@
   font-size: 24px;
   background-color: #ADD8E6;
   margin-bottom: 40px;
+  display: inherit;
 }

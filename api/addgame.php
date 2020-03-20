@@ -31,20 +31,4 @@ $return = array(
 
 echo json_encode($return);
 
-if ($id !== null) {
-	$get_playerid_sql = "SELECT * FROM teams WHERE team_id IN ('$home_team', '$away_team');";
-
-	foreach($conn->query($get_playerid_sql) as $team) {
-		$home = 0;
-
-		if($team["team_id"] === $home_team) {
-			$home = 1;
-		}
-
-		$create_statline_sql = "INSERT INTO statline (player_id, game_id, home_game) VALUES (" . $team['player1'] . "," . $id . "," . $home . "), (" . $team['player2'] . "," . $id . "," . $home . ");";
-
-		$conn->query($create_statline_sql);
-	}
-}
-
 ?>
