@@ -2,10 +2,13 @@ import React from "react";
 import "./App.css";
 import axios from "axios";
 
+import Button from "react-bootstrap/Button";
+
 import StatCollection from "./components/StatCollection";
 import ViewStats from "./components/ViewStats";
 import { createStatDictionary } from "./components/StatUtils";
 import ConfirmStatAdditions from "./components/ConfirmStatAdditions";
+import HomeScreen from "./components/HomeScreen";
 
 // the big wrapper, basically the main class
 class BigWrapGuy extends React.Component {
@@ -172,19 +175,21 @@ class BigWrapGuy extends React.Component {
       return (
         <div>
           <input placeholder="Password" ref={(c) => (this.password = c)} />
-          <button onClick={this.validate}>Submit</button>
+          <Button onClick={this.validate} className="m-2">
+            Submit
+          </Button>
         </div>
       );
       // choose the teams which are playing
     } else if (this.state.current_state === "home_screen") {
       return (
-        <div>
-          <button onClick={this.viewPlayerStats}>View Player Stats</button>
-          <button onClick={this.viewTeamStats}>View Team Stats</button>
-          <button onClick={this.viewGames}>View Games</button>
-          <button onClick={this.goToSheet}>Bracket</button>
-          <button onClick={this.setupGame}>Start Game</button>
-        </div>
+        <HomeScreen
+          viewPlayerStats={this.viewPlayerStats}
+          viewTeamStats={this.viewTeamStats}
+          viewGames={this.viewGames}
+          goToSheet={this.goToSheet}
+          setupGame={this.setupGame}
+        />
       );
       // view stats
     } else if (this.state.current_state === "player_stats") {
